@@ -13,10 +13,6 @@ function deleteDuplicates(array) {
         }, {})
     }
 
-    console.log(getDuplicates(array))
-
-    // let counts = getDuplicates(array)
-
     let counts = {}
 
     let uniqueArray = array.filter(function (element) {
