@@ -1,7 +1,5 @@
 //Дана переменная со строкой. Проверьте, что в эта строка представляет собой число, то есть состоит только из цифр.
 
-let something = '734'
-
 function strContainsOnlyDigits(str) {
     let isNumeric = true
 
@@ -12,4 +10,6 @@ function strContainsOnlyDigits(str) {
     return isNumeric
 }
 
-console.log(strContainsOnlyDigits(something))
+console.log(strContainsOnlyDigits('734'))
+console.log(strContainsOnlyDigits('734eiuih'))
+console.log(strContainsOnlyDigits('734%*'))

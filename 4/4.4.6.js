@@ -13,3 +13,5 @@ function randomNumsArray(min, max, amount, array) {
 }
 
 console.log(randomNumsArray(0, 125, 15, []))
+console.log(randomNumsArray(-15, 1, 5, []))
+console.log(randomNumsArray(-45, -15, 9, []))

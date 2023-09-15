@@ -11,3 +11,5 @@ function getNumOfDividers(number) {
 }
 
 console.log(getNumOfDividers(16))
+console.log(getNumOfDividers(10))
+console.log(getNumOfDividers(256))

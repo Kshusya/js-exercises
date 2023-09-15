@@ -11,3 +11,5 @@ function arrayOfDividers(number) {
 }
 
 console.log(arrayOfDividers(16))
+console.log(arrayOfDividers(10))
+console.log(arrayOfDividers(256))

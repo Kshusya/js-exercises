@@ -18,3 +18,4 @@ function minMaxNumbers(array) {
 }
 
 console.log(minMaxNumbers([1, 3981, 172, 9, 9828, 73, 901]))
+console.log(minMaxNumbers([1, -3981, 172, -9, 9828, 73, -901]))

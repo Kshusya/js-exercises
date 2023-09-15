@@ -16,3 +16,5 @@ function isFraction(string) {
 }
 
 console.log(isFraction('1/2'))
+console.log(isFraction('feh/32'))
+console.log(isFraction('fgr162'))

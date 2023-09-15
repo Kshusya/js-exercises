@@ -12,3 +12,5 @@ function deleteEvenDigitsFromNum(number) {
 }
 
 console.log(deleteEvenDigitsFromNum(12786190418))
+console.log(deleteEvenDigitsFromNum(124680))
+console.log(deleteEvenDigitsFromNum(13579))

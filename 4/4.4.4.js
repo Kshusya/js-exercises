@@ -17,3 +17,7 @@ function isPrimeNumber(number) {
 }
 
 console.log(isPrimeNumber(11))
+console.log(isPrimeNumber(2))
+console.log(isPrimeNumber(5))
+console.log(isPrimeNumber(1))
+console.log(isPrimeNumber(16))
