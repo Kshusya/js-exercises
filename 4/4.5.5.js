@@ -4,7 +4,7 @@ function getArrayOfARandomLatinLetters() {
     let array = []
     let alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
-    for (let i = 0; i <= Math.random() * 50; i++) {
+    for (let i = 0; i <= Math.random() * alphabet.length; i++) {
         let randomLetter = Math.floor(Math.random() * alphabet.length)
         array.push(alphabet[randomLetter])
     }
