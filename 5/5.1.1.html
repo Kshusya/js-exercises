@@ -1,0 +1,36 @@
+<!-- Даны два инпута, абзац и кнопка. В инпуты вводятся числа. По нажатию на кнопку выведите в абзац сумму этих чисел. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <form id="sum-form">
+        <input id="first-input" type="number">
+        <input id="second-input" type="number">
+        <input onclick="getSumToHtml()" type="button" value="Submit">
+    </form>
+    <p id="result"></p>
+    
+    <script>
+        function getSum(firstNum, secondNum) {
+            return firstNum + secondNum;
+        }
+    
+        function getSumToHtml() {
+            let firstNumber = parseFloat(document.getElementById('first-input').value);
+            let secondNumber = parseFloat(document.getElementById('second-input').value);
+            const result = document.getElementById('result');
+            result.innerHTML = getSum(firstNumber, secondNumber);
+        }
+    
+    </script>
+
+</body>
+
+
+</html>

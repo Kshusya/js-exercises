@@ -1,0 +1,35 @@
+<!-- Даны инпуты, в которые вводятся числа. Сделайте так, чтобы по потери фокуса в любом инпуте его значение возводилось в квадрат. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <input class="input-num" type="number">
+    <input class="input-num" type="number">
+    <input class="input-num" type="number">
+
+    <script>
+        function getSquareWhenFocused() {
+            const numberElements = document.querySelectorAll('.input-num');
+
+            numberElements.forEach((element) => {
+                element.addEventListener('blur', () => {
+                    const currentNumber = parseFloat(element.value);
+                    if (!isNaN(currentNumber)) {
+                        const squared = Math.pow(currentNumber, 2);
+                        element.value = squared;
+                    }
+                });
+            })
+        }
+
+        getSquareWhenFocused();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!-- Дан абзац и кнопка. По нажатию на кнопку найдите сумму чисел от 1 до 100 и запишите результат в абзац. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <input type="button" value="Find sum for 1 to 100" onclick="getTheSumToHtml()">
+    <p id="result"></p>
+
+    <script>
+        function getSumFromOneToHundred() {
+            let sum = 0;
+
+            for (let i = 1; i <= 100; i++) {
+                sum += i;
+            }
+
+            return sum;
+        }
+
+        function getTheSumToHtml() {
+            const result = document.getElementById('result');
+            result.innerHTML = getSumFromOneToHundred()
+        }
+    </script>
+</body>
+</html>

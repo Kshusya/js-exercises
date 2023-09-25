@@ -1,0 +1,32 @@
+<!-- Даны абзацы, кнопка и див. По нажатию на кнопку найдите количество абзацев и выведите это значение в див. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <input type="button" value="How many parargaphs?" onclick="getCountOfParagraphs()">
+    <div id="result">Count of paragrpaphs: </div>
+
+    <script>
+        function getCountOfParagraphs() {
+            let count = 0;
+
+            const paragraphs = document.querySelectorAll('p');
+            count = paragraphs.length;
+
+            const result = document.getElementById('result');
+            result.innerHTML = `Count of paragrpaphs: ${count}`;
+        }
+    </script>
+</body>
+</html>

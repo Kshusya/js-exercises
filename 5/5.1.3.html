@@ -1,0 +1,36 @@
+<!-- Дан абзацы с числами, абзац и кнопка. По нажатию на кнопку найдите сумму значений абзацев и запишите ее в абзац. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <p class="number">123</p>
+    <p class="number">456</p>
+    <input type="button" value="Get sum" onclick="getResult()">
+    <p id="result"></p>
+
+    <script>
+        function getResult() {
+            let sum = 0;
+
+            const numberElements = document.querySelectorAll('.number');
+
+            numberElements.forEach(function (element) {
+                const number = parseFloat(element.textContent);
+                if (!isNaN(number)) {
+                    sum += number;
+                }
+            });
+
+            const result = document.getElementById('result');
+            result.innerHTML = sum;
+        }
+    </script>
+</body>
+
+</html>

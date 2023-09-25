@@ -1,0 +1,35 @@
+<!-- Даны абзацы с числами. Сделайте так, чтобы по клику на любой абзац его значение возводилось в квадрат. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <p class="number" style="cursor: pointer;">3</p>
+    <p class="number" style="cursor: pointer;">9</p>
+    <p class="number" style="cursor: pointer;">5</p>
+
+    <script>
+        function getSquare() {
+            const numberElements = document.querySelectorAll('.number');
+
+            numberElements.forEach((element) => {
+                element.addEventListener('click', () => {
+                    const currentNumber = parseFloat(element.textContent);
+                    if (!isNaN(currentNumber)) {
+                        const squared = Math.pow(currentNumber, 2);
+                        element.textContent = squared;
+                    }
+                })
+            })
+        }
+
+        getSquare();
+
+    </script>
+</body>
+</html>

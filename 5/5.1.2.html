@@ -1,0 +1,30 @@
+<!-- Дан абзац с числом и кнопка. По нажатию на кнопку возведите текст абзаца в квадрат. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <p id="number">9</p>
+    <input type="button" value="Square" onclick="changeNumber()">
+
+    <script>
+        function getSquare(n) {
+            return Math.pow(n, 2);
+        }
+    
+        function changeNumber() {
+            let number = parseFloat(document.getElementById('number').textContent);
+            let squared = getSquare(number);
+            document.getElementById('number').textContent = squared;
+        }
+    </script>
+
+</body>
+
+
+</html>
