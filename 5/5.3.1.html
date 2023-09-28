@@ -1,0 +1,33 @@
+<!-- Дан абзац, инпут и кнопка. В инпут вводится число. По нажатию на кнопку выведите в абзац факториал введенного числа. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <input type="number" id="input-number">
+    <input type="button" value="Get factorial" onclick="getFactorialToHtml()">
+    <p id="result"></p>
+
+    <script>
+        function getFactorial(number) {
+            let factorial = 1;
+
+            for (let i = number; i >= 2; i--) factorial = factorial * i
+
+            return factorial;
+        }
+
+        function getFactorialToHtml() {
+            const number = document.getElementById("input-number").value;
+
+            const result = document.getElementById("result");
+            result.innerHTML = getFactorial(number);
+        }
+    </script>
+</body>
+</html>

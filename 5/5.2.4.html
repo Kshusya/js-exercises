@@ -1,0 +1,30 @@
+<!-- Дана кнопка и инпут. В инпут вводится строка. По нажатию на кнопку определите, сколько символов в введенной строке. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <input type="text" id="input-text">
+    <input type="button" value="Get count of symbols" onclick="getCountToHtml()">
+    <p id="result">Count of symbols:</p>
+
+    <script>
+        function getCountOfSymbols(str) {
+            return str.length;
+        }
+
+        function getCountToHtml() {
+            const input = document.getElementById('input-text').value;
+            const count = input.length;
+
+            const result = document.getElementById('result')
+            result.innerHTML = `Count of symbols: ${count}`;
+        }
+    </script>
+</body>
+</html>

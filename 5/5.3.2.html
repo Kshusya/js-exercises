@@ -1,0 +1,26 @@
+<!-- Даны два инпута, кнопка и абзац. В инпуты вводятся целые числа. Определите, какое из введенных чисел больше и выведите его в абзац. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <input class="input-number" type="number">
+    <input class="input-number" type="number">
+    <input type="button" value="Get the higher number" onclick="getTheHigherNum()">
+    <p id="result">The higher number is:</p>
+
+    <script>
+        function getTheHigherNum() {
+            const numbers = Array.from(document.querySelectorAll('.input-number')).map((num) => num.value);
+
+            const result = document.getElementById("result");
+            result.innerHTML = `The higher number is: ${parseFloat(numbers[0]) > parseFloat(numbers[1]) ? numbers[0] : numbers[1]}`;
+        }
+    </script>
+</body>
+</html>
