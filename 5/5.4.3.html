@@ -1,0 +1,28 @@
+<!-- Дан абзац и кнопка. По нажатию на кнопку сделайте в цикле строку '123456789' и запишите ее в абзац. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <input type="button" value="Get string" onclick="getString()">
+    <p id="result"></p>
+
+    <script>
+        function getString() {
+            let str = '';
+
+            for (let i = 1; i <= 9; i++) {
+                str += i;
+            }
+
+            const result = document.getElementById('result');
+            result.innerHTML = str;
+        }
+    </script>
+</body>
+</html>

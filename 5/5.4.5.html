@@ -1,0 +1,25 @@
+<!-- Дана ссылка, абзац и кнопка. По нажатию на кнопку запишите href ссылки в текст абзаца. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <a href="https://www.example.com">Link</a>
+    <input type="button" value="Get link" onclick="getHref()">
+    <p id="result"></p>
+
+    <script>
+        function getHref() {
+            const href = document.querySelector('a').getAttribute('href');
+
+            const result = document.getElementById('result');
+            result.innerHTML = href;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!-- Даны ссылки и кнопка. По нажатию на кнопку получите массив атрибутов href ссылок. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <a href="https://www.example1.com"></a>
+    <a href="https://www.example2.com"></a>
+    <a href="https://www.example3.com"></a>
+    <a href="https://www.example4.com"></a>
+    <a href="https://www.example5.com"></a>
+    <input type="button" value="Get attribute" onclick="getHrefAttributes()">
+
+    <script>
+        function getHrefAttributes() {
+            const links = document.querySelectorAll('a');
+            const hrefAttributes = Array.from(links).map((link) => link.getAttribute('href'));
+
+            console.log(hrefAttributes);
+        }
+    </script>
+</body>
+</html>

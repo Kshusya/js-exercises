@@ -1,0 +1,33 @@
+<!-- Даны пустые абзацы и кнопка. По нажатию на кнопку заполните абзацы числами по порядку. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <input type="button" value="Get result" onclick="getNumberToParahraphs()">
+
+    <script>
+        function getNumberToParahraphs() {
+            const paragraphs = document.querySelectorAll('p');
+
+            let count = 1;
+
+            paragraphs.forEach((paragraph) => {
+                paragraph.textContent = count;
+                count++;
+            });
+        }
+    </script>
+</body>
+
+</html>

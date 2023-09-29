@@ -1,0 +1,30 @@
+<!-- Даны абзацы с текстом. Сделайте так, чтобы по нажатию на любой абзац его текстом становилось значение '!'. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<style>
+    p {
+        cursor: pointer;
+        max-width: 300px;
+    }
+</style>
+
+<body>
+    <p onclick="changeValue(this)">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Netus et malesuada fames ac turpis. Aliquet nec ullamcorper sit amet.</p>
+    <p onclick="changeValue(this)">Tellus at urna condimentum mattis pellentesque id nibh. Sapien faucibus et molestie ac. Risus ultricies tristique nulla aliquet. Arcu non odio euismod lacinia. Quisque id diam vel quam elementum pulvinar etiam non.</p>
+    <p onclick="changeValue(this)">Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Nibh nisl condimentum id venenatis a condimentum vitae sapien pellentesque. Odio eu feugiat pretium nibh ipsum consequat nisl vel pretium. Venenatis urna cursus eget nunc scelerisque.</p>
+
+    <script>
+        function changeValue(paragraph) {
+            paragraph.textContent = '!';
+        }
+    </script>
+</body>
+
+</html>

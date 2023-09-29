@@ -1,0 +1,36 @@
+<!-- Дан абзац, инпут и кнопка. В инпут вводится слово. По нажатию на кнопку переверните слово и запишите его в абзац. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <input id="input-word" type="text" placeholder="Введите слово">
+    <input type="button" value="Get reversed word" onclick="getReversedWordToHtml()">
+    <p id="result"></p>
+
+    <script>
+        function getReversedWord(word) {
+            let newWord = '';
+
+            for (let i = word.length - 1; i >= 0; i--) {
+                newWord += word[i];
+            }
+
+            return newWord;
+        }
+
+        function getReversedWordToHtml() {
+            const input = document.getElementById('input-word').value;
+            
+            const result = document.getElementById('result');
+
+            result.innerHTML = getReversedWord(input);
+        }
+    </script>
+</body>
+</html>
