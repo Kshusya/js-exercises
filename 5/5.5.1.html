@@ -1,0 +1,31 @@
+<!-- Дан инпут, кнопка и три абзаца. В инпут вводится дата в формате 2025-12-31. По нажатию на кнопку выведите в первый абзац год, во второй абзац - месяц, в третий день. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <input id="input-date" type="date">
+    <input type="button" value="Get result" onclick="getResult()">
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <script>
+        function getResult() {
+            const paragraphs = Array.from(document.querySelectorAll('p'));
+
+            const date = document.getElementById('input-date').value;
+            const array = date.split('-');
+
+            paragraphs.forEach((paragraph, index) => {
+                paragraph.innerHTML = array[index];
+            })
+        }
+    </script>
+</body>
+</html>

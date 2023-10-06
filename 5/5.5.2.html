@@ -1,0 +1,37 @@
+<!-- Даны два инпута и кнопка. В инпуты вводятся числа. По нажатию на кнопку заполните массив целыми числами от первого введеного числа до последнего. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <input class="input-number" type="number">
+    <input class="input-number" type="number">
+    <input type="button" value="Get array" onclick="getArray()">
+    <p id="result"></p>
+
+    <script>
+        function getArray() {
+            const numbers = Array.from(document.querySelectorAll('.input-number')).map((element) => element.value);
+
+            let max = Math.max(...numbers);
+            let min = Math.min(...numbers);
+
+            let arr = [];
+
+            for (let i = min; i <= max; i++) {
+                arr.push(i);
+            }
+            console.log(numbers)
+
+            const result = document.getElementById('result');
+            result.innerHTML = arr;
+        }
+        getArray()
+    </script>
+</body>
+</html>
