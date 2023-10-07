@@ -1,0 +1,26 @@
+<!-- Дан инпут, абзац и кнопка. В инпут вводится строка. По нажатию на кнопку выведите в абзац последний символ введенной строки. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <input id="input-text" type="text">
+    <input type="button" value="Get the last symbol" onclick="getTheLastSymbol()">
+    <p id="result"></p>
+
+    <script>
+        function getTheLastSymbol() {
+            const inputText = document.getElementById('input-text').value;
+            const lastSymbol = inputText[inputText.length - 1];
+
+            const result = document.getElementById('result');
+            result.innerHTML = lastSymbol;
+        }
+    </script>
+</body>
+</html>

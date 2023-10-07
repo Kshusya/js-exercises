@@ -1,0 +1,26 @@
+<!-- Дан абзац, в котором записано число 1. По нажатию на кнопку увеличивайте число в абзаце на единицу. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <p id="value">1</p>
+    <input type="button" value="+1" onclick="increaseTheNumber()">
+
+    <script>
+        function increaseTheNumber() {
+            const value = document.getElementById('value').textContent;
+            let number = parseInt(value);
+
+            number++;
+
+            document.getElementById('value').innerHTML = number;
+        }
+    </script>
+</body>
+</html>

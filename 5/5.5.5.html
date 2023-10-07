@@ -1,0 +1,27 @@
+<!-- Дан инпут и абзац. В инпут вводится строка со словами. По потери фокуса выведите в абзац количество слов во введенной строке. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <input type="text" id="input-text">
+    <p id="result"></p>
+
+    <script>
+        function getQuantityOfSymbols() {
+            const text = document.getElementById('input-text').value;
+            const arr = text.split(' ');
+
+            const result = document.getElementById('result');
+            result.innerHTML = (text.length === 0) ? '0' : arr.length;
+        }
+
+        document.getElementById('input-text').addEventListener('blur', getQuantityOfSymbols);
+    </script>
+</body>
+</html>
