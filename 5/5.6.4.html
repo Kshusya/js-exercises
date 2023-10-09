@@ -1,0 +1,36 @@
+<!-- Дан див с шириной, высотой и границей, и кнопка. По клику на кнопку увеличьте размеры дива в два раза. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        div {
+            width: 20px;
+            height: 20px;
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="Change size" onclick="changeSize()">
+    <div id="myDiv"></div>
+
+    <script>
+        function changeSize() {
+            const div = document.getElementById('myDiv');
+
+            const currentWidth = div.offsetWidth;
+            const currentHeight = div.offsetHeight;
+
+            div.style.width = (currentWidth * 2) + 'px';
+            div.style.height = (currentHeight * 2) + 'px';
+        }
+    </script>
+</body>
+
+</html>

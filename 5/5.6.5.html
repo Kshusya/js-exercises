@@ -1,0 +1,67 @@
+<!-- Даны ссылки. Сделайте так, чтобы по наведению на любую ссылку над ней появлялось значение ее атрибута href. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        div {
+            margin-top: 50px;
+        }
+
+        .link::before {
+            content: '';
+            display: none;
+            position: absolute;
+            top: 10px;
+            background-color: white;
+            padding: 5px;
+            border: 1px solid #ccc;
+            z-index: 1;
+        }
+
+        .link:hover::before {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <a class="link" href="https://www.facebook.com/" target="_blank">Facebook</a>
+        <a class="link" href="https://www.instagram.com/" target="_blank">Instagram</a>
+    </div>
+
+    <script>
+        const links = document.querySelectorAll('.link');
+
+        links.forEach((link) => {
+            link.addEventListener('mouseover', () => {
+                const link = event.currentTarget;
+                const hrefValue = link.getAttribute('href');
+
+                // Создаем уникальный идентификатор для стиля
+                const styleId = 'link-style';
+
+                // Удаляем старый стиль (если есть)
+                const oldStyle = document.querySelector(`#${styleId}`);
+                if (oldStyle) {
+                    oldStyle.parentNode.removeChild(oldStyle);
+                }
+
+                // Создаем новый стиль для псевдоэлемента ::before
+                const style = document.createElement('style');
+                style.id = styleId;
+                style.textContent = `.link:hover::before {content: "${hrefValue}";}`;
+
+                // Добавляем новый стиль в HEAD
+                document.head.appendChild(style);
+            })
+        })
+    </script>
+</body>
+
+</html>

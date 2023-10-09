@@ -1,0 +1,27 @@
+<!-- Дан инпут, кнопка и абзац. В инпут вводится дата в формате 2025-12-31. По нажатию на кнопку выведите в абзац день недели, соответствующий этой дате. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <input type="date" id="input-date">
+    <input type="button" value="Get weekday" onclick="getWeekday()">
+    <p id="result"></p>
+
+    <script>
+        function getWeekday() {
+            const input = document.getElementById('input-date').value;
+
+            let date = new Date(input)
+
+            const result = document.getElementById('result');
+            result.innerHTML = date.toLocaleString('en-US', { weekday: 'long' });
+        }
+    </script>
+</body>
+</html>

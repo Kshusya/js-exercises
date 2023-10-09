@@ -1,0 +1,32 @@
+<!-- Дан инпут, кнопка и абзац. В инпут вводится год. По нажатию на кнопку определите, введен високосный год или нет и выведите информацию об этом в абзац. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <input type="date" id="input-date">
+    <input type="button" value="is leap year" onclick="myFunc()">
+    <p id="result"></p>
+
+    <script>
+        function myFunc() {
+            const date = document.getElementById('input-date').value;
+            const year = date.split('-')[0];
+    
+            function isLeapYear(year) {
+                if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) return 'year is leap'
+                return 'year is NOT leap'
+            }
+    
+            const result = document.getElementById('result');
+            result.innerHTML = isLeapYear(year);
+        }
+    </script>
+</body>
+
+</html>
