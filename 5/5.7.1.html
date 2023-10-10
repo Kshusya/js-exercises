@@ -1,0 +1,45 @@
+<!-- Даны теги li с числами, инпут и кнопка. По нажатию на кнопку найдите сумму чисел и выведите их в инпут. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>8</li>
+        <li>29</li>
+        <li>10</li>
+        <li>21</li>
+        <li>12</li>
+    </ul>
+    <input type="button" value="Get the sum" onclick="getSum()">
+    <input type="text" id="result">
+
+    <script>
+        function getSum() {
+            const list = document.querySelectorAll('li');
+
+            let sum = 0;
+
+            list.forEach((element) => {
+                const number = parseFloat(element.textContent);
+
+                if (!isNaN(number)) {
+                    sum += number;
+                }
+            })
+
+            const result = document.getElementById('result');
+            result.value = sum;
+        }
+    </script>
+</body>
+
+</html>

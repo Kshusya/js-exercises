@@ -1,0 +1,33 @@
+<!-- Дан инпут, абзац и кнопка. В инпут вводится число. По нажатию на кнопку получите массив делителей числа и выведите их в абзац через запятую. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="number" id="input-number">
+    <input type="button" value="Get the divider" onclick="getDivider()">
+    <p id="result"></p>
+
+    <script>
+        function getDivider() {
+            const number = document.getElementById('input-number').value;
+            let array = [];
+
+            for (let i = 1; i <= parseInt(number); i++) {
+                if (parseFloat(number) % i === 0) array.push(i);
+            }
+
+            const result = document.getElementById('result');
+            result.innerHTML = array;
+        }
+    </script>
+</body>
+</html>

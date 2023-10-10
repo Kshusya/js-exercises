@@ -1,0 +1,41 @@
+<!-- Даны абзацы с текстом. Сделайте так, чтобы по нажатию на любой абзац его текст переворачивался. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        p {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Fusce lobortis tortor eu nunc malesuada, faucibus egestas sapien finibus.</p>
+    <p>Nulla ultricies tellus pellentesque nulla hendrerit, vel porta turpis aliquam.</p>
+    <p>Ut finibus turpis a justo auctor, a laoreet nunc euismod.</p>
+
+    <script>
+        const paragraphs = document.querySelectorAll('p');
+
+        paragraphs.forEach((p) => {
+            p.addEventListener('click', () => {
+                const text = p.textContent;
+                let reversedText = '';
+
+                for (let i = text.length - 1; i >= 0; i--) {
+                    reversedText += text[i];
+                }
+
+                p.innerHTML = reversedText;
+            })
+        })
+    </script>
+</body>
+
+</html>

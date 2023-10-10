@@ -1,0 +1,36 @@
+<!-- Даны теги li с числами и кнопка. По нажатию на кнопку увеличьте все числа в тегах li на единицу. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>8</li>
+        <li>29</li>
+        <li>10</li>
+        <li>21</li>
+        <li>12</li>
+    </ul>
+    <input type="button" value="Increase value" onclick="increaseValue()">
+
+    <script>
+        function increaseValue() {
+            const list = document.querySelectorAll('li');
+
+            list.forEach((element) => {
+                const number = parseFloat(element.textContent);
+
+                element.innerHTML = number + 1;
+            })
+        }
+    </script>
+</body>
+</html>

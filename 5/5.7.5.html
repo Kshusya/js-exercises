@@ -1,0 +1,30 @@
+<!-- В инпут вводится число из 6-ти цифр. По нажатию на кнопку проверьте, равна ли сумма первых трех цифр сумме вторых трех цифр. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="text" maxlength="6" id="input-number" placeholder="Enter 6 digits">
+    <input type="button" value="Get result" onclick="myFunc()">
+    <p id="result"></p>
+
+    <script>
+        function myFunc() {
+            const result = document.getElementById('result');
+
+            const number = document.getElementById('input-number').value;
+
+            result.innerHTML = (parseInt(number[0]) + parseInt(number[1]) + parseInt(number[2]) === parseInt(number[3]) + parseInt(number[4]) + parseInt(number[5])) ? 'The sum of the first three digits is equal to the sum of the last three digits' : 'The sum of the first three digits is NOT equal to the sum of the last three digits'
+        }
+    </script>
+</body>
+
+</html>
