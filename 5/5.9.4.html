@@ -1,0 +1,37 @@
+<!-- В инпут вводится дата в формате 2025-12-31. По потери фокуса сделайте так, чтобы в инпуте стала дата в формате 35.12.2025. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="text" placeholder="2025-12-31" id="input-date">
+
+    <script>
+        const inputDate = document.getElementById('input-date');
+
+        inputDate.addEventListener('blur', () => {
+            const inputValue = inputDate.value;
+
+            const arr = inputValue.split('-');
+
+            if (arr.length === 3) {
+                const year = arr[0];
+                const month = arr[1];
+                const day = arr[2];
+
+                const formattedDate = `${day}.${month}.${year}`;
+
+                inputDate.value = formattedDate;
+            }
+        })
+    </script>
+</body>
+</html>

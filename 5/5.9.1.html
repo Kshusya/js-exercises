@@ -1,0 +1,30 @@
+<!-- Дан массив с числами, кнопка и инпут. По нажатию на кнопку запишите в инпут все числа из массива, разделив их запятыми. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="text" id="input">
+    <input type="button" value="Get random element of array" onclick="getRandomElement()">
+
+    <script>
+        function getRandomElement() {
+            const arr = [1, 12, 102, 2981, 39];
+    
+            const str = arr.join()
+
+            const input = document.getElementById('input');
+
+            input.value = str;
+        }
+    </script>
+</body>
+</html>

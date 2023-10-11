@@ -1,0 +1,31 @@
+<!-- Дан инпут и кнопка. В инпут через запятую вводятся числа. По нажатию на кнопку проверьте, есть ли среди введенных число 13. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="text" id="input">
+    <input type="button" value="Get result" onclick="isThereThirteen()">
+
+    <script>
+        const input = document.getElementById('input');
+
+        function isThereThirteen() {
+            const inputValue = input.value;
+
+            const arr = inputValue.split(',');
+
+            console.log(arr.includes('13'));
+        }
+    </script>
+</body>
+
+</html>

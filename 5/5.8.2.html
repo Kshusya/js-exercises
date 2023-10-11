@@ -1,0 +1,35 @@
+<!-- Дан массив, кнопка и инпут. Сделайте так, чтобы по клику на кнопку в инпут выводился случайный элемент массива. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <p id="paragraph"></p>
+    <input type="text" id="input">
+    <input type="button" value="Get random element of array" onclick="getRandomElement()">
+
+    <script>
+        const arr = ['Element 1', 'Element 2', 'Element 3', 'Element 4', 'Element 5'];
+
+        const par = document.getElementById('paragraph');
+        par.innerHTML = arr;
+
+        const input = document.getElementById('input');
+
+        function getRandomElement() {
+            const randomIndex = Math.floor(Math.random() * arr.length);
+
+            input.value = arr[randomIndex];
+        }
+    </script>
+</body>
+
+</html>

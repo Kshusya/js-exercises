@@ -1,0 +1,29 @@
+<!-- Дан массив с числами, кнопка и инпут. Сделайте так, чтобы по клику на кнопку в инпут через запятую выводились четные числа из этого массива. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="text" id="user-input">
+    <input type="button" value="Get even numbers" onclick="getEvenNumbers()">
+
+    <script>
+        function getEvenNumbers() {
+            const arr = [21, 281, 29, 94, 85, 58, 28, 85];
+
+            const userInput = document.getElementById('user-input');
+
+            const evenNumbers = arr.filter((el) => el % 2 === 0);
+            userInput.value = evenNumbers;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!-- Дан инпут. В него вводится число. Если введено нечетное число, то покрасьте границу инпута в красный цвет, а если четное - то в зеленый. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="number" id="input-number">
+
+    <script>
+        const inputNumber = document.getElementById('input-number');
+
+        inputNumber.addEventListener('input', () => {
+            const number = parseInt(inputNumber.value);
+
+            if (number % 2 === 0) {
+                inputNumber.style.borderColor = 'green';
+            } else {
+                inputNumber.style.borderColor = 'red';
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!-- Даны абзацы с текстом. Сделайте так, чтобы по нажатию на любой абзац его текст красился в красный цвет. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        p {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Fusce lobortis tortor eu nunc malesuada, faucibus egestas sapien finibus.</p>
+    <p>Nulla ultricies tellus pellentesque nulla hendrerit, vel porta turpis aliquam.</p>
+    <p>Ut finibus turpis a justo auctor, a laoreet nunc euismod.</p>
+
+    <script>
+        const paragraphs = document.querySelectorAll('p');
+
+        paragraphs.forEach((p) => {
+            p.addEventListener('click', () => {
+                p.style.color = 'red';
+            })
+        })
+    </script>
+</body>
+
+</html>

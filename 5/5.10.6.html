@@ -1,0 +1,36 @@
+<!-- Дана кнопка и ul. По клику на кнопку выведите список всех годов за сто лет назад и вперед. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="button" value="Get years" onclick="getHundredYearsBackAndForward()">
+    <ul id="list"></ul>
+
+    <script>
+        function getHundredYearsBackAndForward() {
+            const list = document.getElementById('list');
+
+            const date = new Date();
+            const year = date.getFullYear();
+
+            const min = parseInt(year) - 100;
+            const max = parseInt(year) + 100;
+
+            for (let i = min; i <= max; i++) {
+                const li = document.createElement('li');
+                li.textContent = i;
+                list.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>

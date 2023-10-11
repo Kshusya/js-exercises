@@ -1,0 +1,38 @@
+<!-- Дан пустой список ul и текстареа. В него вводится текст со знаками препинания. По потери фокуса запишите каждое предложение из текста в свой тег li. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <ul id="list"></ul>
+    <textarea id="text-area" cols="30" rows="10"></textarea>
+
+    <script>
+        const textArea = document.getElementById('text-area');
+
+        textArea.addEventListener('blur', () => {
+            const textValue = textArea.value;
+            const sentences = textValue.split(/[.!?]/);
+
+            const list = document.getElementById('list');
+            list.innerHTML = '';
+
+            sentences.forEach((sentence) => {
+                if (sentence.trim() !== '') {
+                    const li = document.createElement('li');
+                    li.textContent = sentence.trim();
+                    list.appendChild(li);
+                }
+            })
+        })
+    </script>
+</body>
+</html>

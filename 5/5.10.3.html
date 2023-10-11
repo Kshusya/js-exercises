@@ -1,0 +1,38 @@
+<!-- Дан массив с названиями цвета. Даны абзацы с текстом. Сделайте так, чтобы по нажатию на любой абзац его текст красился в случайный цвет из массива. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        p {
+            background-color: lightgrey;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Fusce lobortis tortor eu nunc malesuada, faucibus egestas sapien finibus.</p>
+    <p>Nulla ultricies tellus pellentesque nulla hendrerit, vel porta turpis aliquam.</p>
+    <p>Ut finibus turpis a justo auctor, a laoreet nunc euismod.</p>
+
+    <script>
+        const arr = ["aqua", "black", "blue", "fuchsia", "grey", "green", "lime", "maroon", "navy", "olive", "purple", "red", "silver", "teal", "white", "yellow"];
+
+        const paragraphs = document.querySelectorAll('p');
+
+        paragraphs.forEach((p) => {
+            p.addEventListener('click', () => {
+                randomIndex = Math.floor(Math.random() * arr.length);
+                p.style.color = arr[randomIndex];
+            })
+        })
+    </script>
+</body>
+
+</html>
