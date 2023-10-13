@@ -1,0 +1,33 @@
+<!-- Дана кнопка, пустой список ul и массив. По клику на кнопку заполните список элементами этого массива. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="button" value="Get list" onclick="makeList()">
+    <ul id="list"></ul>
+
+    <script>
+        const arr = ['Element 1', 'Element 2', 'Element 3', 'Element 4', 'Element 5'];
+
+        function makeList() {
+            const list = document.getElementById('list');
+
+            arr.forEach((element) => {
+                const li = document.createElement('li');
+                li.textContent = element;
+                list.appendChild(li);
+            })
+        }
+    </script>
+</body>
+
+</html>

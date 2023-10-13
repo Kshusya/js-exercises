@@ -1,0 +1,46 @@
+<!-- По клику на кнопку создайте HTML таблицу с заданной шириной и высотой. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <button id="my-button">Get table</button>
+
+    <script>
+        const button = document.getElementById('my-button');
+
+        const width = prompt("Введите ширину таблицы:");
+        const height = prompt("Введите высоту таблицы:");
+
+        button.addEventListener('click', () => {
+            const table = document.createElement('table');
+
+            for (let i = 0; i < height; i++) {
+                let row = document.createElement('tr');
+                row.style.border = "1px solid black";
+
+                for (let j = 0; j < width; j++) {
+                    let cell = document.createElement('td');
+                    cell.style.border = "1px solid black";
+                    cell.textContent = "Cell " + (i + 1) + "-" + (j + 1);
+                    row.appendChild(cell);
+                }
+
+                table.appendChild(row);
+            }
+
+            table.style.border = "1px solid black";
+            document.body.appendChild(table);
+        })
+    </script>
+</body>
+
+</html>
