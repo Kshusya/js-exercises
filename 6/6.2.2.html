@@ -1,4 +1,4 @@
-<!-- По клику на кнопку создайте HTML таблицу с заданной шириной и высотой. -->
+<!-- По клику на кнопку создайте HTML таблицу с заданной шириной и высотой так, чтобы в ячейках стояли их порядковые номера. -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,7 @@
                 for (let j = 0; j < width; j++) {
                     let cell = document.createElement('td');
                     cell.style.border = "1px solid black";
-                    cell.textContent = "Cell";
+                    cell.textContent = "Cell " + (i * width + j + 1);
                     row.appendChild(cell);
                 }
 

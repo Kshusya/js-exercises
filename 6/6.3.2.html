@@ -1,0 +1,38 @@
+<!-- Дан список ul. По клику на любую li добавьте ей в конец ее порядковый номер в списке, но только один раз. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>Element</li>
+        <li>Element</li>
+        <li>Element</li>
+        <li>Element</li>
+        <li>Element</li>
+    </ul>
+
+    <script>
+        const listElements = document.querySelectorAll('li');
+
+        listElements.forEach((li, index) => li.addEventListener('click', () => {
+            if (!li.dataset.clicked) {
+                li.dataset.clicked = "true";
+                li.innerHTML += " " + (index + 1);
+            }
+        }))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!-- Дан абзац и кнопка. Пусть первое нажатие на кнопку красит абзац в красный цвет, а второе нажатие в зеленый. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <p id="paragraph">Fusce lobortis tortor eu nunc malesuada, faucibus egestas sapien finibus.</p>
+    <button id="my-button">Change color</button>
+
+    <script>
+        const paragraph = document.getElementById('paragraph');
+
+        const button = document.getElementById('my-button');
+
+        let count = 0;
+
+        button.addEventListener('click', () => {
+            if (count === 0) {
+                paragraph.style.color = "red";
+                count = 1;
+            } else {
+                paragraph.style.color = "green";
+                count = 0;
+            }
+        })
+    </script>
+</body>
+</html>

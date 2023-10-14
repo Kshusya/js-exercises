@@ -1,0 +1,32 @@
+<!-- Дан абзац с числом и кнопка. По нажатию на кнопку пусть число из абзаца каждую секунду увеличивается на единицу. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <p id="number">0</p>
+    <button id="my-button">+1</button>
+
+    <script>
+        const button = document.getElementById('my-button');
+        const number = document.getElementById('number');
+
+        let count = parseFloat(number.textContent);
+
+        button.addEventListener('click', () => {
+            setInterval(() => {
+                count++;
+                number.innerHTML = count;
+            }, 1000)
+        })
+    </script>
+</body>
+</html>

@@ -1,4 +1,11 @@
-<!-- По клику на кнопку создайте HTML таблицу с заданной шириной и высотой. -->
+<!-- Дан массив:
+
+[
+	[1, 2, 3],
+	[4, 5, 6],
+	[7, 8, 9],
+]
+По нажатию на кнопку создайте таблицу, заполненную данными из этого массива. -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
+        td {
+            padding: 10px;
+        }
     </style>
 </head>
 
@@ -17,8 +27,13 @@
     <script>
         const button = document.getElementById('my-button');
 
-        const width = prompt("Enter table width:");
-        const height = prompt("Enter table height:");
+        const arr = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9],
+        ]
+
+        const height = arr.length;
 
         button.addEventListener('click', () => {
             const table = document.createElement('table');
@@ -27,10 +42,12 @@
                 let row = document.createElement('tr');
                 row.style.border = "1px solid black";
 
+                const width = arr[i].length;
+
                 for (let j = 0; j < width; j++) {
                     let cell = document.createElement('td');
                     cell.style.border = "1px solid black";
-                    cell.textContent = "Cell";
+                    cell.textContent = i * width + j + 1;
                     row.appendChild(cell);
                 }
 

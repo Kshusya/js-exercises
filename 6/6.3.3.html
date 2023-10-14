@@ -1,0 +1,38 @@
+<!-- Дан список ul. По клику на любую li, если нажата клавиша Ctrl, удалите эту li из списка. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <li>Element 1</li>
+        <li>Element 2</li>
+        <li>Element 3</li>
+        <li>Element 4</li>
+        <li>Element 5</li>
+    </ul>
+
+    <script>
+        const listElements = document.querySelectorAll('li');
+        const list = document.getElementById('list');
+
+        listElements.forEach((li) => li.addEventListener('click', (event) => {
+            if (event.ctrlKey || event.metaKey) {
+                list.removeChild(event.target);
+            }
+        }))
+    </script>
+</body>
+
+</html>
