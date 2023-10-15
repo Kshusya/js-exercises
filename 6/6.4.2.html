@@ -1,0 +1,39 @@
+<!-- Дан список ul и инпут. Сделайте так, чтобы по потери фокуса инпутом его текст становился новым пунктом списка. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="text" id="text-input">
+    <ul id="list">
+        <li>Element 1</li>
+        <li>Element 2</li>
+        <li>Element 3</li>
+        <li>Element 4</li>
+        <li>Element 5</li>
+    </ul>
+
+    <script>
+        const input = document.getElementById('text-input');
+        
+        input.addEventListener('blur', () => {
+            const inputValue = input.value;
+            
+            const list = document.getElementById('list');
+            const li = document.createElement('li');
+            li.textContent = inputValue;
+
+            list.appendChild(li);
+        })
+    </script>
+</body>
+
+</html>

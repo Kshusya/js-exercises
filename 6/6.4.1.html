@@ -1,0 +1,35 @@
+<!-- Дан список ul. Сделайте так, чтобы по клику на любую li она удалялась из списка. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <li>Element 1</li>
+        <li>Element 2</li>
+        <li>Element 3</li>
+        <li>Element 4</li>
+        <li>Element 5</li>
+    </ul>
+
+    <script>
+        const listElements = document.querySelectorAll('li');
+        const list = document.getElementById('list');
+
+        listElements.forEach((li) => {
+            li.addEventListener('click', (event) => {
+                list.removeChild(event.target);
+            })
+        })
+    </script>
+</body>
+
+</html>

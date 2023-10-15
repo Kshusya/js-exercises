@@ -1,0 +1,36 @@
+<!-- Дан инпут и абзац. В инпут вводится дата. Определите, была уже дата в текущем году. Результат выведите в абзац. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="date" id="input-date">
+    <input type="button" value="Result" onclick="myFunc()">
+    <p id="result"></p>
+
+    <script> 
+        function myFunc() {
+            const currentDate = new Date();
+
+            const dateInputValue = document.getElementById('input-date').value;
+            const inputDate = new Date(dateInputValue);
+
+            if (inputDate.getFullYear() >= currentDate.getFullYear() && inputDate > currentDate) {
+                document.getElementById("result").textContent = "Даты еще не было";
+            } else if (inputDate.getFullYear() < currentDate.getFullYear() || inputDate < currentDate) {
+                document.getElementById("result").textContent = "Дата уже была";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
