@@ -1,0 +1,33 @@
+<!-- Даны два инпута, абзац и кнопка. В инпуты через запятую вводятся числа. По клику на кнопку выведите через запятую в абзац числа, которые есть в обоих инпутах. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input id="first-input" type="text">
+    <input id="second-input" type="text">
+    <button onclick="findCommonNumbers()">Get common numbers</button>
+    <p id="result"></p>
+
+    <script>
+        function findCommonNumbers() {
+            const firstInputArray = document.getElementById('first-input').value.split(',').map(Number);
+            const secondInputArray = document.getElementById('second-input').value.split(',').map(Number);
+
+            const commonNumbers = firstInputArray.filter(number => secondInputArray.includes(number));
+
+            const result = document.getElementById('result');
+            result.innerHTML = 'Common numbers is ' + commonNumbers.join(', ');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!-- Дано произвольное количество инпутов и кнопка. В инпуты вводятся числа. По нажатию на кнопку найдите сумму введенных чисел и выведите в текст кнопки. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <button id="my-button" onclick="calculateSum()">Get sum</button>
+    <input type="text" placeholder="Enter the number">
+    <input type="text" placeholder="Enter the number">
+    <input type="text" placeholder="Enter the number">
+
+    <script>
+        function calculateSum() {
+            const inputs = Array.from(document.querySelectorAll('input')).map((input) => input.value);
+
+            let sum = 0;
+
+            inputs.forEach((num) => {
+                sum += parseFloat(num);
+            })
+
+            const button = document.getElementById('my-button'); 
+            if (!isNaN(sum)) button.innerHTML = sum;
+        }
+    </script>
+</body>
+</html>

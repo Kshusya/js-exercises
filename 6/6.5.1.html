@@ -1,0 +1,35 @@
+<!-- Дан абзац и инпут. В инпут вводится дата рождения юзера в формате год-месяц-день. Выведите в абзац, сколько полных лет юзеру. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="date" id="input-date" onchange="getBirthday()">
+    <p id="result"></p>
+
+    <script>
+        function getBirthday() {
+            const birthdate = new Date(document.getElementById("input-date").value);
+    
+            const today = new Date();
+            let age = today.getFullYear() - birthdate.getFullYear();
+            const birthMonth = birthdate.getMonth();
+            const todayMonth = today.getMonth();
+    
+            if (todayMonth < birthMonth || (todayMonth === birthMonth && today.getDate() < birthdate.getDate())) age--;
+
+            const result = document.getElementById('result');
+            result.innerHTML = `You are ${age} years old`;
+        }
+    </script>
+</body>
+
+</html>

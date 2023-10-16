@@ -1,0 +1,54 @@
+<!-- Дан инпут и ul. В инпут вводится год. Выведите в список даты всех пятниц 13-е в заданном году. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="text" id="input-year">
+    <ul id="list"></ul>
+
+    <script>
+        const list = document.getElementById('list');
+
+        const input = document.getElementById('input-year');
+
+        function countFridays13(year) {
+            let arr = []
+
+            for (let month = 0; month < 12; month++) {
+                const date = new Date(year, month, 13);
+                if (date.getDay() === 5) arr.push(date);
+            }
+
+            return arr;
+        }
+
+        input.addEventListener('blur', () => {
+            const inputYear = document.getElementById('input-year').value;
+
+            const fridays = countFridays13(inputYear);
+
+            // Удаление предыдущего списка
+            while (list.firstChild) {
+                list.removeChild(list.firstChild);
+            }
+
+            fridays.forEach((date) => {
+                const li = document.createElement('li');
+                li.textContent = date.toLocaleString('en-US', { month: 'long', day: "numeric", year: "numeric" })
+
+                list.appendChild(li);
+            })
+        })
+    </script>
+</body>
+
+</html>

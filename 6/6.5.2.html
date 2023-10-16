@@ -1,0 +1,35 @@
+<!-- Дан абзац и инпут. В инпут вводятся числа, разделенные запятыми. Сделайте так, чтобы по мере ввода данных в инпут в абзац выводилась сумма введеных чисел. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <p id="result"></p>
+    <input type="text" placeholder="Enter the numbers" id="input-numbers" oninput="getTheSum()">
+
+    <script>
+        function getTheSum() {
+            const inputValue = document.getElementById('input-numbers').value;
+
+            const numbers = inputValue.split(',');
+
+            let sum = 0;
+
+            numbers.forEach((num) => {
+                sum += parseFloat(num);
+            })
+
+            const result = document.getElementById('result');
+            if (!isNaN(sum)) result.innerHTML = sum;
+        }
+    </script>
+</body>
+</html>

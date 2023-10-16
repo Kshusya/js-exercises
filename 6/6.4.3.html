@@ -1,0 +1,59 @@
+<!-- Дана таблица из трех колонок, три инпута и кнопка. Сделайте так, чтобы по клику на кнопку в таблицу добавлялся новый ряд с текстами ячеек из инпутов. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" class="table-input">
+    <input type="text" class="table-input">
+    <input type="text" class="table-input">
+    <button onclick="AddToTheTable()">Add to the table</button>
+    <table id="my-table">
+        <tr>
+            <td>Company</td>
+            <td>Contact</td>
+            <td>Country</td>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+        </tr>
+        <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+        </tr>
+    </table>
+
+    <script>
+        function AddToTheTable() {
+            const inputValueArray = Array.from(document.getElementsByClassName('table-input')).map((input) => input.value);
+
+            const table = document.getElementById('my-table')
+
+            let row = document.createElement('tr');
+
+            inputValueArray.forEach((el) => {
+                let cell = document.createElement('td');
+                cell.textContent = el;
+                row.appendChild(cell);
+            })
+            
+            table.appendChild(row);
+        }
+    </script>
+</body>
+
+</html>
