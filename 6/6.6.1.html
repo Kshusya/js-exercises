@@ -1,0 +1,49 @@
+<!-- Дан массив, инпут, кнопка и абзац. В инпут вводится число. По нажатию на кнопку выведите в абзац элемент массива, номер которого введен в инпут. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="text" id="input-number">
+    <button onclick="getIndexValue()">Get index value</button>
+    <p id="result"></p>
+
+    <script>
+        const arr = ["Aardvark",
+            "Albatross",
+            "Alligator",
+            "Alpaca",
+            "Ant",
+            "Anteater",
+            "Antelope",
+            "Ape",
+            "Armadillo",
+            "Donkey",
+            "Baboon",
+            "Badger",
+            "Barracuda"
+        ];
+        
+        const maxLength = arr.length.toString();
+        const input = document.getElementById('input-number');
+        input.setAttribute("maxlength", maxLength.length);
+
+        function getIndexValue() {
+            const inputValue = input.value;
+
+            const result = document.getElementById('result');
+            // Будем считать, что в условии задачи под номером подразумевается индекс
+            result.innerHTML = arr[parseInt(inputValue)];
+        }
+    </script>
+</body>
+
+</html>

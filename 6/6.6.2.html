@@ -1,0 +1,30 @@
+<!-- Дан абзац, кнопка и массив с цветами. Пусть нажатие на кнопку красит абзац в случайный цвет из массива. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <p id="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <button onclick="ChangeColorToRandom()">Random color</button>
+
+    <script>
+        const arr = ["aqua", "black", "blue", "fuchsia", "grey", "green", "lime", "maroon", "navy", "olive", "purple", "red", "silver", "teal", "white", "yellow"];
+
+        function ChangeColorToRandom() {
+            const paragraph = document.getElementById('paragraph');
+
+            const randomIndex = Math.floor(Math.random() * arr.length);
+            paragraph.style.color = arr[randomIndex];
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!-- Дан текстареа и див. В текстареа вводится текст. Сделайте так, чтобы по нажатию Shift + Enter этот текст добавился в див. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <textarea id="text-input" cols="30" rows="10"></textarea>
+    <div id="result"></div>
+
+    <script>
+        const textarea = document.getElementById('text-input');
+
+        const result = document.getElementById('result');
+
+        textarea.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' && event.shiftKey) {
+                result.innerHTML = textarea.value;
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!-- Дана таблица, кнопка и массив с цветами. Пусть нажатие на любую ячейку красит ее в случайный цвет из массива цветов. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        table {
+            background-color: lightblue;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        td {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="my-table">
+        <tr>
+            <td>Company</td>
+            <td>Contact</td>
+            <td>Country</td>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+        </tr>
+        <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+        </tr>
+    </table>
+
+    <script>
+        const arr = ["aqua", "black", "blue", "fuchsia", "grey", "green", "lime", "maroon", "navy", "olive", "purple", "red", "silver", "teal", "white", "yellow"];
+
+        const cells = document.querySelectorAll('td');
+
+        cells.forEach((cell) => {
+            cell.addEventListener('click', () => {
+                const randomIndex = Math.floor(Math.random() * arr.length);
+                cell.style.backgroundColor = arr[randomIndex];
+            })
+        })
+    </script>
+</body>
+
+</html>
