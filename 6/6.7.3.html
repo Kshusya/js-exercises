@@ -1,0 +1,38 @@
+<!-- Дана кнопка и селект. По клику на кнопку заполните селект числами от первого до последнего дня текущего месяца. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <button id="my-button">Get dates of the current month</button>
+    <select id="my-select"></select>
+
+    <script>
+        const button = document.getElementById('my-button');
+        const selectElement = document.getElementById('my-select');
+
+        button.addEventListener('click', () => {
+            const currentDate = new Date();
+            const currentYear = currentDate.getFullYear();
+            const currentMonth = currentDate.getMonth();
+            const lastDay = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            for (let i = 1; i <= lastDay; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.innerHTML = i;
+
+                selectElement.appendChild(option);
+            }
+        })
+    </script>
+</body>
+</html>

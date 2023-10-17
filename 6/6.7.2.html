@@ -1,0 +1,32 @@
+<!-- Дан абзац и кнопка. По клику на кнопку выведите в абзац название дня недели последнего дня текущего месяца. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <p id="result"></p>
+    <button id="my-button">Get the day of the week of the last day of the month</button>
+
+    <script>
+        const result = document.getElementById('result');
+        const button = document.getElementById('my-button');
+
+        button.addEventListener('click', () => {
+            const currentDate = new Date();
+            const currentYear = currentDate.getFullYear();
+            const currentMonth = currentDate.getMonth();
+            const lastDay = new Date(currentYear, currentMonth + 1, 0);
+
+            result.innerHTML = lastDay.toLocaleString('en-US', { weekday: 'long' });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!-- Дан инпут, кнопка и абзац. В инпут вводится число. По нажатию на кнопку выведите в абзац строку, состоящую из нулей, количество которых равно числу. Например, при вводе числа 5 у нас должна получится строка '00000'. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="nuber" id="input-number">
+    <button id="my-button">Get zeros</button>
+    <p id="result"></p>
+
+    <script>
+        const button = document.getElementById('my-button');
+        const result = document.getElementById('result');
+
+        button.addEventListener('click', () => {
+            const inputValue = document.getElementById('input-number').value;
+
+            if (result.textContent.trim() !== '') result.innerHTML = '';
+
+            for (let i = 0; i < inputValue; i++) {
+                result.innerHTML += '0';
+            }
+        })
+    </script>
+</body>
+</html>
