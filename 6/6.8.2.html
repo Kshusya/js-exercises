@@ -1,0 +1,35 @@
+<!-- Дан див и кнопка. По первому клику на кнопку покажите див, а по второму клику - спрячьте. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: greenyellow;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="my-button">Hide and show up</button>
+    <div></div>
+
+    <script>
+        const button = document.getElementById('my-button');
+
+        button.addEventListener('click', () => {
+            const div = document.querySelector('div');
+            div.classList.toggle('hidden');
+        })
+    </script>
+</body>
+</html>

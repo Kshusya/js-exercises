@@ -1,0 +1,36 @@
+<!-- Дан абзац, кнопка и массив с цветами. Пусть нажатие на кнопку красит абзац в следующий цвет из массива и так по кругу. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <p id="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <button id="change-color">Change color</button>
+
+    <script>
+        const arr = ["aqua", "black", "blue", "fuchsia", "grey", "green", "lime", "maroon", "navy", "olive", "purple", "red", "silver", "teal", "white", "yellow"];
+
+        const paragraph = document.getElementById('paragraph');
+        const button = document.getElementById('change-color');
+
+        let colorId = 0;
+
+        button.addEventListener('click', () => {
+            paragraph.style.color = arr[colorId];
+            colorId++;
+
+            if (colorId >= arr.length) colorId = 0;
+        })
+
+    </script>
+</body>
+
+</html>
