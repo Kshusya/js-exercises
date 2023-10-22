@@ -1,0 +1,41 @@
+<!-- Дан абзац и два инпута. В инпуты вводятся даты. Выведите в абзац, сколько дней между введенными датами. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="date" id="first-date">
+    <input type="date" id="second-date">
+    <p id="result"></p>
+
+    <script>
+        const result = document.getElementById('result');
+
+        const firstDateInput = document.getElementById('first-date');
+        const secondDateInput = document.getElementById('second-date');
+
+        firstDateInput.addEventListener('change', calculateDateDifference);
+        secondDateInput.addEventListener('change', calculateDateDifference);
+
+        function calculateDateDifference() {
+            const firstDateValue = new Date(firstDateInput.value);
+            const secondDateValue = new Date(secondDateInput.value);
+
+            if (!isNaN(firstDateValue.getTime()) && !isNaN(secondDateValue.getTime())) {
+                const differenceInMilliseconds = Math.abs(firstDateValue - secondDateValue);
+                const differenceInDays = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24));
+
+                result.innerHTML = `Time difference is ${differenceInDays} days`;
+            }
+        }
+    </script>
+</body>
+</html>

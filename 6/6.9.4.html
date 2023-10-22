@@ -1,0 +1,36 @@
+<!-- Дана кнопка и список ul, заполненный пунктами с числами. По клику на кнопку добавляйте новую li с числом, на единицу больше числа последей li из списка. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <button id="my-button">Add new element</button>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+        const list = document.querySelector('ul');
+        const button = document.getElementById('my-button');
+        
+        button.addEventListener('click', () => {
+            const listElements = document.querySelectorAll('li');
+            const li = document.createElement('li');
+            li.textContent = parseInt(listElements[listElements.length - 1].textContent) + 1;
+            list.appendChild(li);
+        })
+    </script>
+</body>
+</html>

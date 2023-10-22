@@ -1,0 +1,43 @@
+<!-- Дан список ul. По клику на любую li записывайте в конец ее текста порядковый номер клика по этой li. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        li {
+            cursor: pointer;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>Element</li>
+        <li>Element</li>
+        <li>Element</li>
+        <li>Element</li>
+        <li>Element</li>
+    </ul>
+
+    <script>
+        const listElements = document.querySelectorAll('li');
+
+        let count = 1;
+        listElements.forEach((li) => {
+            li.addEventListener('click', () => {
+                const text = li.textContent;
+                if (text.includes(' ')) li.textContent = text.substring(0, text.lastIndexOf(' '));
+                li.textContent += ` ${count}`;
+                count++;
+            })
+        })
+    </script>
+</body>
+
+</html>
