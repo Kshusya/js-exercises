@@ -1,0 +1,41 @@
+<!-- Дана кнопка, инпут и список ul, В инпут вводится текст. По клику на кнопку добавьте в список новую li с этим текстом, но только если этот текст больше текста последнего тега li из списка. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="text" id="input-text">
+    <button id="my-button">Ok</button>
+    <ul id="list">
+        <li>123</li>
+    </ul>
+
+    <script>
+        const input = document.getElementById('input-text');
+        const button = document.getElementById('my-button');
+        const list = document.getElementById('list');
+        
+        button.addEventListener('click', () => {
+            const inputValue = input.value;
+            const inputValueLength = inputValue.length;
+            
+            const listElements = document.querySelectorAll('li');
+            const lastListElementLength = listElements[listElements.length - 1].textContent.length;
+
+            if (inputValueLength > lastListElementLength) {
+                const li = document.createElement('li');
+                li.textContent = inputValue;
+                list.appendChild(li);
+            }
+        })
+    </script>
+</body>
+</html>

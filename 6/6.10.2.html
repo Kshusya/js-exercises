@@ -1,0 +1,124 @@
+<!-- Сделайте вручную HTML таблицу 8 на 8. По нажатию на кнопку покрасьте каждую четную ячейку в белый цвет, а нечетную - в черный. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        td, tr {
+            border: 1px solid black;
+            color: brown;
+            background-color: lightpink;
+        }
+        .even {
+            background-color: white;
+        }
+        .odd {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="my-button">Ok</button>
+    <table>
+        <tr>
+            <td>Company</td>
+            <td>Contact</td>
+            <td>Country</td>
+            <td>Company</td>
+            <td>Contact</td>
+            <td>Country</td>
+            <td>Company</td>
+            <td>Contact</td>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+        </tr>
+        <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+        </tr>
+        <tr>
+            <td>Company</td>
+            <td>Contact</td>
+            <td>Country</td>
+            <td>Company</td>
+            <td>Contact</td>
+            <td>Country</td>
+            <td>Company</td>
+            <td>Contact</td>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+        </tr>
+        <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+        </tr>
+        <tr>
+            <td>Company</td>
+            <td>Contact</td>
+            <td>Country</td>
+            <td>Company</td>
+            <td>Contact</td>
+            <td>Country</td>
+            <td>Company</td>
+            <td>Contact</td>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+        </tr>
+    </table>
+
+    <script>
+        const button = document.getElementById('my-button');
+
+        const table = document.querySelector('table');
+        const cells = table.getElementsByTagName('td');
+
+        button.addEventListener('click', () => {
+            for (let i = 0; i < cells.length; i++) {
+                if ((i + 1) % 2 === 0) cells[i].classList.add('even')
+                else cells[i].classList.add('odd')
+            }
+        })
+    </script>
+</body>
+</html>

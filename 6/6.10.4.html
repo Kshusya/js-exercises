@@ -1,0 +1,34 @@
+<!-- Даны текстареа, инпут и кнопка. В текстареа вводится текст со словами. В инпут вводится слово. По нажатию на кнопку выведите на экран, сколько раз встречается это слово в веденном тексте. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input style="display: block; margin-bottom: 5px;" type="text" id="input-word" placeholder="Enter the word">
+    <textarea id="textarea-input" cols="30" rows="10" placeholder="Enter the text"></textarea>
+    <button style="display: block;" id="check-button">Check the word</button>
+
+    <script>
+        const button = document.getElementById('check-button');
+        const wordElement = document.getElementById('input-word');
+        const textareaElement = document.getElementById('textarea-input');
+
+        button.addEventListener('click', () => {
+            const wordValue = wordElement.value.toLowerCase();
+            const textareaValue = textareaElement.value.toLowerCase();
+
+            const wordsArr = textareaValue.match(/\b\w+\b/g);
+            const matched = wordsArr.filter((word) => word === wordValue);
+            alert(`This word appears ${matched.length} times in the text`);
+        })
+    </script>
+</body>
+</html>
