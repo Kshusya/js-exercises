@@ -1,0 +1,46 @@
+<!-- Дан список ul с числами, инпут и кнопка. В инпут вводится число. По клику на кнопку покрасьте в красный цвет li, содержащее введенное число. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form onsubmit="changeColorOfInputNumber(); return false">
+        <input type="number" id="input-number">
+        <input type="submit">
+    </form>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+    <script>
+        function changeColorOfInputNumber() {
+            const list = document.querySelectorAll('li');
+
+            list.forEach((element) => element.classList.remove('red'));
+
+            const listValue = Array.from(document.querySelectorAll('li')).map((element) => element.textContent);
+
+            const inputValue = document.getElementById('input-number').value;
+
+            const index = listValue.findIndex((element) => element === inputValue);
+
+            list[index].classList.add("red");
+        }
+    </script>
+</body>
+</html>

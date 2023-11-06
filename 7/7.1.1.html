@@ -1,0 +1,40 @@
+<!-- Дана кнопка и список ul, заполненный числами. По клику на кнопку удалите пункт списка, содержащий самое максимальное число. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <button id="my-button">Ok</button>
+    <ul id="list">
+        <li>2</li>
+        <li>1000</li>
+        <li>55</li>
+        <li>94</li>
+        <li>7</li>
+        <li>64</li>
+    </ul>
+
+    <script>
+        const button = document.getElementById('my-button');
+        
+        button.addEventListener('click', () => {
+            const listElementsValue = Array.from(document.querySelectorAll('li')).map((element) => parseFloat(element.textContent));
+
+            let max = listElementsValue.reduce((a, b) => Math.max(a, b), -Infinity);
+
+            const listElements = document.querySelectorAll('li');
+            const list = document.getElementById('list');
+
+            list.removeChild(listElements[Array.from(listElements).findIndex((element) => element.textContent == max)]);
+        })
+    </script>
+</body>
+</html>

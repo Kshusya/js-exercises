@@ -1,0 +1,53 @@
+<!-- Дана таблица и инпут. В инпут вводится дата рождения юзера в формате год-месяц-день. Выведите в первой колонке все даты рождения юзера, а во второй колонке - соответствующие дни недели. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        td, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="input-date">Enter your birthday</label>
+    <input type="date" id="input-date" oninput="getDatesToTheTable()">
+    <table id="my-table"></table>
+
+    <script>
+        const input = document.getElementById('input-date');
+        const table = document.getElementById('my-table');
+
+        function getDatesToTheTable() {
+            const inputValue = input.value;
+            const date = new Date(inputValue);
+            const today = new Date();
+            
+            table.innerHTML = "";
+            if (isValidDate(inputValue)) {
+                
+                for (let i = date.getFullYear(); i <= today.getFullYear(); i++) {
+                    let everyYearDate = new Date(i, date.getMonth(), date.getDate());
+                    let dayOfTheWeek = everyYearDate.toLocaleString('en-US', { weekday: 'long' });
+
+                    let row = document.createElement('tr');
+                    row.innerHTML = '<td>' + everyYearDate.toLocaleString('en-US', {dateStyle: "medium"}) + '</td><td>' + dayOfTheWeek + '</td>';
+                    table.appendChild(row);
+                }
+
+            }
+        }
+
+        function isValidDate(dateString) {
+            const regex = /^\d{4}-\d{2}-\d{2}$/;
+            return regex.test(dateString);
+        }
+    </script>
+</body>
+
+</html>

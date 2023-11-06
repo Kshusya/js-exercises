@@ -1,0 +1,46 @@
+<!-- Дан следующая верстка:
+
+<p>111</p>
+<p>222</p>
+<p>333</p>
+<p>444</p>
+<p>555</p>
+
+Получите содержимое текстов абзацев в виде массива:
+
+[
+	'111',
+	'222',
+	'333',
+	'444',
+	'555',
+] -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <p>111</p>
+    <p>222</p>
+    <p>333</p>
+    <p>444</p>
+    <p>555</p>
+
+    <script>
+        let arr = [];
+
+        const pElements = Array.from(document.querySelectorAll('p')).map((element => element.textContent));
+
+        arr.push(pElements);
+        console.log(arr);
+    </script>
+</body>
+</html>

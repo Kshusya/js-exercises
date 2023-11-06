@@ -1,0 +1,71 @@
+<!-- Даны чекбоксы, с помощью которых у юзера спрашиваются языки, которые он знает. Дан также абзац. По мере выбора чекбоксов юзером выводите в абзац выбранные языки через запятую. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        input {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="result">I know these languages: </p>
+    <form>
+        <label>English
+            <input type="checkbox">
+        </label>
+
+        <label>Russian
+            <input type="checkbox">
+        </label>
+
+        <label>Chinese
+            <input type="checkbox">
+        </label>
+
+        <label>Japan
+            <input type="checkbox">
+        </label>
+
+        <label>French
+            <input type="checkbox">
+        </label>
+
+        <label>German
+            <input type="checkbox">
+        </label>
+    </form>
+
+    <script>
+        const languages = Array.from(document.querySelectorAll('label')).map((element) => element.textContent.trim());
+
+        const inputs = document.querySelectorAll('input');
+
+        inputs.forEach((input, index) => input.addEventListener('click', () => {
+            const result = document.getElementById('result');
+
+            let checkedLanguages = [];
+            checkedLanguages.push(languages[index]);
+
+            if (input.checked) {
+                result.textContent += checkedLanguages.join() + ", ";
+            } else {
+                result.textContent = result.textContent.replace(languages[index] + ", ", "");
+            }
+
+        }));
+    </script>
+</body>
+
+</html>

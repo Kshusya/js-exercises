@@ -1,0 +1,32 @@
+<!-- Дан абзац, содержащий текст со словами. Дана также кнопка. По клику на кнопку возьмите каждое слово в свой тег span. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <button id="my-button">OK</button>
+    <p>Fusce lobortis tortor eu nunc malesuada, faucibus egestas sapien finibus.</p>
+
+    <script>
+        const button = document.getElementById('my-button');
+        const paragraph = document.querySelector('p');
+
+        button.addEventListener('click', () => {
+            const words = paragraph.textContent.split(' ');
+
+            const spanText = words.map(word => `<span>${word}</span>`).join(' ');
+
+            paragraph.innerHTML = spanText;
+        })
+    </script>
+</body>
+
+</html>

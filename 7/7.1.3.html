@@ -1,0 +1,38 @@
+<!-- Дан абзац, содержащий текст со словами и с дробями вида 1/2. Дана также кнопка. По клику на кнопку возьмите каждую дробь в свой тег span. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        span {
+            color: plum;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="my-button">OK</button>
+    <p>Fusce 1/2 lobortis tortor eu 3/4 nunc malesuada, faucibus 10/15 egestas 300/700 sapien finibus.</p>
+
+    <script>
+        const button = document.getElementById('my-button');
+        const paragraph = document.querySelector('p');
+        const regex = /(\d+)\/(\d+)/;
+
+        button.addEventListener('click', () => {
+            const words = paragraph.textContent.split(' ');
+
+            const matched = words.map((word) => {
+                if (word.match(regex)) return `<span>${word}</span>`;
+                return word
+            }).join(' ');
+
+            paragraph.innerHTML = matched;
+        })
+    </script>
+</body>
+</html>
