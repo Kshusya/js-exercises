@@ -1,0 +1,64 @@
+<!-- Дан следующая структура данных:
+
+let data = [
+	{
+		text: '111',
+		href: '1.html',
+	},
+	{
+		text: '222',
+		href: '2.html',
+	},
+	{
+		text: '333',
+		href: '3.html',
+	},
+]
+Сформируйте с помощью этих данных следующую верстку:
+
+<a href="1.html">111</a>
+<a href="2.html">222</a>
+<a href="3.html">222</a> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        a {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        let data = [
+            {
+                text: '111',
+                href: '1.html',
+            },
+            {
+                text: '222',
+                href: '2.html',
+            },
+            {
+                text: '333',
+                href: '3.html',
+            },
+        ]
+
+        for (let i = 0; i < data.length; i++) {
+            const linkElement = document.createElement('a');
+            linkElement.textContent = data[i].text;
+            linkElement.href = data[i].href;
+            document.body.appendChild(linkElement);
+        }
+     </script>
+</body>
+
+</html>

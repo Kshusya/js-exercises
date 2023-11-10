@@ -1,0 +1,51 @@
+<!-- Дан абзац, содержащий текст со словами. Некоторые слова повторяются два раза. По клику на кнопку удалите лишние одинаковые рядом стоящие слова. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <button id="my-button">Remove duplicate words</button>
+    <p id="text">Lorem ipsum ipsum dolor sit amet amet, consectetur adipiscing ipsum elit ipsum. Ut eu ligula magna. Nam leo augue, malesuada a eleifend a, venenatis ac odio. Curabitur sapien eros, accumsan at commodo eu, scelerisque eget nisl.</p>
+
+    <script>
+        const text = document.getElementById('text');
+        const button = document.getElementById('my-button');
+
+        button.addEventListener('click', () => {
+            let words = text.textContent.split(' ');
+            for (let i = words.length - 1; i > 1; i--) {
+                if (words[i - 1].match(/\b\w+\b/g)[0] === words[i].match(/\b\w+\b/g)[0]) {
+                    words.splice(i, 1);
+                }
+            }
+            text.textContent = words.join(" ");
+
+            // const clearWords = text.textContent.toLowerCase().match(/\b\w+\b/g);
+
+            // const indexArr = [];
+            // for (let i = 1; i < clearWords.length; i++) {
+            //     if (clearWords[i] === clearWords[i - 1]) {
+            //         indexArr.push(i);
+            //     }
+            // }
+
+            // let deletedCount = 0;
+            // for (let i = 0; i < indexArr.length; i++) {
+            //     const words = text.textContent.split(' ');
+            //     // console.log(words.toSpliced(indexArr[i] - deletedCount, 1))
+            //     newContent = words.toSpliced(indexArr[i] - deletedCount, 1).join(' ');
+            //     text.textContent = newContent;
+            //     deletedCount++;
+            // }
+        })
+    </script>
+</body>
+</html>
