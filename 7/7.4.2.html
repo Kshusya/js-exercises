@@ -1,0 +1,45 @@
+<!-- Дан абзац, содержащий текст со словами. Сделайте так, чтобы по клику на любое слово из этого абзаца, это слово выделялось красным цветом. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        p {
+            cursor: pointer;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        .highlight {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque sodales lectus, at dictum
+        dolor vestibulum a. Phasellus laoreet libero id auctor feugiat. Morbi bibendum euismod dapibus. Vivamus
+        consectetur purus at dolor aliquam rhoncus. Maecenas accumsan ligula facilisis purus malesuada, sed ornare arcu
+        dapibus. Praesent ut nunc cursus, convallis lacus in, hendrerit nisl. Maecenas at ornare purus, commodo luctus
+        risus. Mauris commodo arcu eget massa consectetur elementum. Curabitur ac massa porta sem auctor euismod. Nam in
+        faucibus risus, et condimentum nibh.</p>
+
+    <script>
+        const text = document.getElementById('text');
+
+        const words = text.textContent.split(' ');
+        const spanText = words.map(word => `<span>${word}</span>`).join(' ');
+        text.innerHTML = spanText;
+
+        text.addEventListener('click', (event) => {
+            if (event.target.tagName === 'SPAN') {
+                event.target.classList.toggle('highlight');
+            }
+        });
+    </script>
+</body>
+
+</html>

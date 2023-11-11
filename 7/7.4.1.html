@@ -1,0 +1,54 @@
+<!-- Дан ul. Выведите в него дни текущего месяца. Текущий день, а также выходные, выделите другими цветами. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .holidays {
+            color: red;
+        }
+        .today {
+            color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list"></ul>
+
+    <script>
+        const list = document.getElementById('list');
+
+        const now = new Date();
+        const month = now.getMonth();
+        const year = now.getFullYear();
+        const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        function isLeapYear(year) {
+            let date = new Date(year, 2, 0)
+            if (date.getDate() === 29) return true
+            return false
+        }
+
+        console.log(now.getDay())
+        if (isLeapYear(year)) daysInMonth.splice(1, 1, 29);
+
+        for (let day = 1; day <= daysInMonth[month]; day++) {
+            let li = document.createElement('li');
+            li.textContent = day;
+
+            let todayDay = new Date(year, month, day);
+            if (todayDay.getDay() === 0 || todayDay.getDay() === 6) li.classList.add('holidays');
+
+            if (day == now.getDate()) li.classList.add('today');
+
+            list.appendChild(li);
+        }
+    </script>
+</body>
+
+</html>

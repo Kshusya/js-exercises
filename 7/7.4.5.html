@@ -1,0 +1,44 @@
+<!-- Дан инпут, абзац и кнопка. В инпут вводится число. По нажатию на кнопку сделайте так, чтобы в абзаце начал тикать обратный отсчет от введенного в инпут числа до нуля. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="number" id="input-number">
+    <button onclick="countFromInputNumber()">Countdown to zero</button>
+    <p id="result">Countdown to zero: </p>
+
+    <script>
+        function countFromInputNumber() {
+            const inputValue = document.getElementById('input-number').value;
+
+            const result = document.getElementById('result');
+
+            let count = inputValue;
+
+            result.innerHTML = "Countdown to zero: ";
+
+            function updateCount() {
+                (inputValue > 0) ? count-- : count++;
+
+                result.innerHTML = "Countdown to zero: " + count;
+
+                if (count === 0) {
+                    clearTimeout(timeout);
+                }
+            }
+
+            const timeout = setInterval(updateCount, 1000);
+        }
+    </script>
+</body>
+
+</html>

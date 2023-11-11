@@ -1,0 +1,44 @@
+<!-- Дан инпут и кнопка. В него вводится число из четного количества цифр. По клику на кнопку проверьте, что число представляет собой счастливый билет, то есть сумма половины цифр равна сумме второй половине цифр. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <input type="number" id="input-number">
+    <button onclick="isLuckyTicket()">OK</button>
+
+    <script>
+        const input = document.getElementById('input-number');
+
+        function isLuckyTicket() {
+            const inputValue = input.value;
+            const str = inputValue.toString();
+
+            if (str.length % 2 !== 0) alert('Please enter even number')
+
+            let firstSum = 0;
+            let secondSum = 0;
+
+            for (let i = 0; i < (str.length / 2); i++) {
+                firstSum += parseInt(str[i]);
+            }
+
+            for (let i = (str.length / 2); i < str.length; i++) {
+                secondSum += parseInt(str[i]);
+            }
+
+            if (firstSum === secondSum) alert('You have a lucky ticket!')
+            else alert(`It's not a lucky ticket :(`)
+        }
+    </script>
+</body>
+
+</html>
