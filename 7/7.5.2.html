@@ -1,0 +1,72 @@
+<!-- Даны кнопки и дивы. Каждая кнопка соответствует своему диву. Сделайте так, чтобы по первому клику на кнопку открывался ее див, а по второму клику - скрывался. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .container {
+            display: flex;
+        }
+
+        #first_div,
+        #second_div {
+            width: 50px;
+            height: 20px;
+            margin: 10px;
+        }
+
+        button {
+            margin-bottom: 30px;
+        }
+
+        #first_div {
+            background-color: cornflowerblue;
+        }
+
+        #second_div {
+            background-color: darksalmon;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="container">
+    <div>
+        <input type="button" value="Hide div" id="first_button">
+        <div id="first_div"></div>
+    </div>
+    <div>
+        <input type="button" value="Hide div" id="second_button">
+        <div id="second_div"></div>
+    </div>
+
+    <script>
+        const firstButton = document.getElementById('first_button');
+        const secondButton = document.getElementById('second_button');
+
+        const firstDiv = document.getElementById('first_div');
+        const secondDiv = document.getElementById('second_div');
+
+        function toggleDiv(button, div) {
+            div.classList.toggle('hide');
+            button.value = (div.classList.contains('hide')) ? 'Show div' : 'Hide div';
+        }
+
+        firstButton.addEventListener('click', () => {
+            toggleDiv(firstButton, firstDiv);
+        });
+
+        secondButton.addEventListener('click', () => {
+            toggleDiv(secondButton, secondDiv);
+        });
+    </script>
+</body>
+
+</html>

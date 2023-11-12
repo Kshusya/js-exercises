@@ -1,0 +1,54 @@
+<!-- Дана кнопка. По клику на кнопку плавно прокрутите окно браузера до самого низа. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        p {
+            font-size: 100px;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="scroll-button">Scroll down</button>
+    <p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae pulvinar enim. Nullam porttitor
+        sagittis
+        massa. Duis fringilla libero vitae varius mattis. Integer ultrices porttitor porttitor. Praesent imperdiet
+        tristique pharetra. Suspendisse potenti. Mauris dolor turpis, ultrices sollicitudin consectetur sed, semper in
+        ex. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed in mauris tortor.
+        Morbi ex dolor, consectetur vehicula malesuada non, luctus in urna. Suspendisse sodales quis massa posuere
+        facilisis.
+
+        Nam vitae sagittis ipsum. Phasellus ac augue malesuada mauris gravida gravida nec at eros. Mauris at vestibulum
+        ante. Suspendisse tristique condimentum ipsum, a fermentum libero dictum eu. Curabitur sit amet odio tempus,
+        tempus elit eu, pharetra magna. Suspendisse nec nisi vitae ex faucibus molestie. Suspendisse lacinia malesuada
+        libero, non tincidunt elit venenatis in.
+
+        Sed pellentesque diam mi, nec tempor nunc eleifend ut. Cras risus ipsum, lobortis quis quam id, ornare efficitur
+        felis. Mauris nec tortor sed enim luctus rutrum. Fusce mollis, arcu sit amet iaculis luctus, velit purus egestas
+        orci, vitae ultricies lacus dolor condimentum risus. Mauris scelerisque convallis eros, nec efficitur risus.
+        Pellentesque neque metus, sollicitudin sit amet aliquam nec, iaculis a magna. Aenean mollis tellus in molestie
+        dapibus. Curabitur posuere convallis arcu sit amet pellentesque. Donec eu sapien non purus consequat rhoncus.
+        Maecenas ut feugiat ligula.
+    </p>
+
+    <script>
+        const button = document.getElementById('scroll-button');
+        const text = document.getElementById('text');
+
+        button.addEventListener('click', () => {
+            text.scrollIntoView({
+                block: 'end',
+                behavior: 'smooth',
+            })
+        })
+    </script>
+</body>
+
+</html>
