@@ -1,0 +1,43 @@
+<!-- Дан абзац, содержащий текст со словами. Сделайте так, чтобы по клику на любое слово из этого абзаца, это слово меняло порядок своих букв на обратный. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        p {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus elementum lorem quis ullamcorper
+        congue. Pellentesque faucibus, nisl eu vestibulum sodales, turpis ipsum dignissim nisi, et imperdiet est lectus
+        quis turpis. Vestibulum congue non leo blandit efficitur. Ut ut turpis sed ligula volutpat sodales. Nunc id
+        volutpat ipsum, non semper sem. Nulla auctor non lacus a scelerisque. Fusce non nisi et dui porttitor
+        pellentesque quis sit amet velit.</p>
+
+    <script>
+        const text = document.getElementById('text');
+
+        const words = text.textContent.split(' ');
+        const spanText = words.map(word => `<span>${word}</span>`).join(' ');
+        text.innerHTML = spanText;
+
+        text.addEventListener('click', (event) => {
+            if (event.target.tagName === 'SPAN') {
+                let reversed = '';
+                for (let i = event.target.textContent.length - 1; i >= 0; i--) {
+                    reversed += event.target.textContent[i];
+                }
+                event.target.innerHTML = reversed;
+            }
+        });
+    </script>
+</body>
+
+</html>

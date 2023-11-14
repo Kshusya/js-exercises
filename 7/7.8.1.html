@@ -1,0 +1,45 @@
+<!-- Дана кнопка и список ul. По клику на кнопку добавьте в конец каждой li ссылку, по нажатию на которую текст li будет перечеркиваться (но не текст ссылки). -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <button onclick="changeList()">Add link and cross out</button>
+    <ul id="list">
+        <li>Element 1</li>
+        <li>Element 2</li>
+        <li>Element 3</li>
+        <li>Element 4</li>
+        <li>Element 5</li>
+    </ul>
+
+    <script>
+        function changeList() {
+            const list = document.querySelectorAll('#list li');
+
+            list.forEach((element) => {
+                const link = document.createElement('a');
+                link.href = "#";
+                link.textContent = 'link';
+
+                const span = document.createElement('span');
+                span.textContent = element.textContent;
+
+                span.style.textDecoration = 'line-through';
+
+                element.textContent = '';
+                element.appendChild(span);
+                element.appendChild(link);
+            })
+        }
+    </script>
+</body>
+</html>

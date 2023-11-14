@@ -1,0 +1,66 @@
+<!-- Дан следующий массив:
+
+let users = [
+	{id: 1, name: 'user1', surn: 'surn1', age: 30},
+	{id: 2, name: 'user2', surn: 'surn2', age: 31},
+	{id: 3, name: 'user3', surn: 'surn3', age: 32},
+];
+Выведите элементы этого массива в виде таблицы table так, чтобы каждое поле объекта попало в свой тег td. Сделайте заголовки колонок вашей таблицы. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        tr, td, th {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let users = [
+            { id: 1, name: 'user1', surn: 'surn1', age: 30 },
+            { id: 2, name: 'user2', surn: 'surn2', age: 31 },
+            { id: 3, name: 'user3', surn: 'surn3', age: 32 },
+        ];
+
+        const table = document.createElement('table');
+        const thead = document.createElement('thead');
+        const tr = document.createElement('tr');
+
+        const headerRow = Object.keys(users[0]);
+
+        headerRow.forEach((header => {
+            let th = document.createElement('th');
+            th.textContent = header;
+            tr.appendChild(th);
+        }));
+
+        thead.appendChild(tr);
+        table.appendChild(thead);
+
+        const tbody = document.createElement('tbody');
+        table.appendChild(tbody);
+
+        users.forEach(user => {
+            let row = document.createElement('tr');
+
+            headerRow.forEach(header => {
+                let td = document.createElement('td');
+                td.textContent = user[header];
+                row.appendChild(td);
+            });
+
+            tbody.appendChild(row);
+        });
+        document.body.appendChild(table);
+    </script>
+</body>
+
+</html>

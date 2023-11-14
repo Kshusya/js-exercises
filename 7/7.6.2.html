@@ -1,0 +1,37 @@
+<!-- Дана кнопка и ul. По клику на кнопку выведите список всех возможных счастливых билетов. Билет представляет собой строку из шести цифр, может быть с нулями спереди. Билет считается счастливым, если сумма сумма первых трех цифр равна сумме вторых трех цифр. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <button onclick="allLuckyTickets()">Show all lucky tickets</button>
+    <ul id="list"></ul>
+
+    <script>
+        function allLuckyTickets() {
+            const list = document.getElementById('list');
+            list.innerHTML = '';
+
+            for (let i = 0; i <= 999999; i++) {
+                const ticketNumber = i.toString().padStart(6, '0');
+                const sumFirstHalf = Number(ticketNumber[0]) + Number(ticketNumber[1]) + Number(ticketNumber[2]);
+                const sumSecondHalf = Number(ticketNumber[3]) + Number(ticketNumber[4]) + Number(ticketNumber[5]);
+
+                if (sumFirstHalf === sumSecondHalf) {
+                    const li = document.createElement('li');
+                    li.textContent = ticketNumber;
+                    list.appendChild(li);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!-- На странице через абсолютное позиционирование расположены два дива. По клику на кнопку проверьте, накладываются ли эти дивы друга на друга или нет. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        #first_div, #second_div {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        #first_div {
+            background-color: cornflowerblue;
+        }
+        #second_div {
+            background-color: darksalmon;
+            left: 50px;
+            /* left: 500px; */
+        }
+        button {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="checkOverlay()">Check overlay</button>
+    <div id="first_div"></div>
+    <div id="second_div"></div>
+
+    <script>
+        function checkOverlay() {
+            const firstDiv = document.getElementById('first_div');
+            const secondDiv = document.getElementById('second_div');
+
+            const firstRect = firstDiv.getBoundingClientRect();
+            const secondRect = secondDiv.getBoundingClientRect();
+
+            if (firstRect.right > secondRect.left && firstRect.left < secondRect.right && firstRect.bottom > secondRect.top && firstRect.top < secondRect.bottom) alert("Divs are overlaying");
+            else alert("Divs are NOT overlaying");
+        }
+    </script>
+</body>
+</html>
