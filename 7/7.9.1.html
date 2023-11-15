@@ -1,0 +1,39 @@
+<!-- Дан абзац и инпут. В абзаце через пробел написаны слова. В инпут вводится некоторое слово. По потери фокуса проверьте, есть ли такое слово в абзаце, и если нет - добавьте его. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        tr, td, th {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="input-word">
+    <p id="text">lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+
+    <script>
+        const input = document.getElementById('input-word');
+        
+        input.addEventListener('blur', () => {
+            const inputValue = input.value.toLowerCase();
+            
+            const text = document.getElementById('text');
+            const textContent = text.textContent.toLowerCase();
+
+            const words = textContent.split(' ');
+
+            if (!textContent.includes(inputValue)) words.push(inputValue);
+
+            text.innerHTML = words.join(' ');
+        })
+    </script>
+</body>
+</html>

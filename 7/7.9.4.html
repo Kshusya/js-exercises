@@ -1,0 +1,55 @@
+<!-- Дан следующая верстка:
+
+<a href="1.html">111</a>
+<a href="2.html">222</a>
+<a href="3.html">222</a>
+Получите содержимое адресов и текстов ссылок в виде следующей структуры:
+
+[
+	{
+		text: '111',
+		href: '1.html',
+	},
+	{
+		text: '222',
+		href: '2.html',
+	},
+	{
+		text: '333',
+		href: '3.html',
+	},
+] -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <a href="1.html">111</a>
+    <a href="2.html">222</a>
+    <a href="3.html">222</a>
+
+    <script>
+        const links = document.querySelectorAll('a');
+
+        let arr = [];
+
+        for (let i = 0; i < links.length; i++) {
+            const linkText = links[i].textContent;
+            const linkHref = links[i].getAttribute('href');
+
+            arr.push({ 'text': linkText, 'href': linkHref });
+        }
+
+        console.log(arr);
+    </script>
+</body>
+
+</html>
