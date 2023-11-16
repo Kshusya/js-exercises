@@ -1,0 +1,54 @@
+<!-- Дана таблица прямоугольного размера с нечетным количеством рядов и колонок. Дана кнопка. По клику на кнопку выделите каким-нибудь цветом центральную ячейку. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        tr,
+        td {
+            border: 1px solid black;
+        }
+
+        .color {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="changeColorOfMiddle()">Click</button>
+    <table>
+        <tr>
+            <td>Company</td>
+            <td>Contact</td>
+            <td>Country</td>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+        </tr>
+        <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+        </tr>
+    </table>
+
+    <script>
+        function changeColorOfMiddle() {
+            const cells = document.querySelectorAll('td');
+    
+            console.log(cells.length)
+            const middle = Math.ceil(cells.length / 2);
+    
+            cells[middle - 1].classList.add('color');
+        }
+    </script>
+</body>
+
+</html>

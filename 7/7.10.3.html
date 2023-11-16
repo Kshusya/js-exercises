@@ -1,0 +1,75 @@
+<!-- Даны дивы с названиями продуктов и ценами. Дан также абзац. Сделайте так, чтобы кликами можно было выбрать несколько продуктов и их суммарная стоимость при этом писалась бы в абзац. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <p id="total-price">Total price: </p>
+    <div class="product">
+        <label>Milk - 3
+            <input type="checkbox" id="product1" price="3">
+        </label>
+    </div>
+    <div class="product">
+        <label>Chocolate Bar - 2.50
+            <input type="checkbox" id="product2" price="2.50">
+        </label>
+    </div>
+    <div class="product">
+        <label>Apples (per kg) - 1.20
+            <input type="checkbox" id="product3" price="1.20">
+        </label>
+    </div>
+    <div class="product">
+        <label>Running Shoes - 75.99
+            <input type="checkbox" id="product4" price="75.99">
+        </label>
+    </div>
+    <div class="product">
+        <label>Mobile Phone Case - 12.99
+            <input type="checkbox" id="product5" price="12.99">
+        </label>
+    </div>
+    <div class="product">
+        <label>Desk Lamp - 29.95
+            <input type="checkbox" id="product6" price="29.95">
+        </label>
+    </div>
+    <div class="product">
+        <label>Coffee Beans (per 250g) - 8.75
+            <input type="checkbox" id="product7" price="8.75">
+        </label>
+    </div>
+
+    <script>
+        function updateTotalPrice() {
+            const checkboxes = document.querySelectorAll('.product input[type="checkbox"]');
+            const totalPrice = document.getElementById('total-price');
+
+            let total = 0;
+
+            checkboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    total += parseFloat(checkbox.getAttribute('price'));
+                }
+
+                totalPrice.textContent = 'Total price: ' + total.toFixed(2);
+            })
+        }
+
+        const checkboxes = document.querySelectorAll('.product input[type="checkbox"]');
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', updateTotalPrice)
+        })
+    </script>
+</body>
+
+</html>
