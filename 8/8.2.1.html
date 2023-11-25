@@ -1,0 +1,54 @@
+<!-- В текстареа вводится текст со словами. По потери фокуса сделайте таблицу, в первой колонке которой будут слова из текста, во второй колонке - количество раз, которое это слово встречается, а в третьей - процентное содержание этого слова в текста. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        textarea {
+            resize: none;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea id="text" cols="30" rows="10" placeholder="Enter the text"></textarea>
+    <div id="table"></div>
+
+    <script>
+        const textarea = document.getElementById('text');
+        const table = document.getElementById('table')
+
+        textarea.addEventListener('blur', () => {
+            const textValue = textarea.value;
+            const words = textValue.match(/\b\w+\b/g);
+
+            const wordCount = {};
+
+            words.forEach(word => {
+                wordCount[word] = (wordCount[word] || 0) + 1;
+            });
+
+            const totalCount = words.length;
+            console.log(wordCount)
+
+            let tableContent = "<table><tr><th>Word</th><th>Count</th><th>%</th></tr>";
+            
+            for (let word in wordCount) {
+                let count = wordCount[word];
+                let percentage = (count / totalCount * 100).toFixed(1);
+
+                tableContent += "<tr><td>" + word + "</td><td>" + count + "</td><td>" + percentage + "%</td></tr>";
+            }
+
+            tableContent += "</table>";
+
+            table.innerHTML = tableContent;
+        })
+    </script>
+</body>
+
+</html>
