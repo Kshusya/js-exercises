@@ -1,0 +1,46 @@
+<!-- Дан список ul и кнопка. По нажатию на кнопку отсортируйте пункты списка по возрастанию. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <button id="my-button">Ok</button>
+    <ul id="list">
+        <li>Element 5</li>
+        <li>Element 2</li>
+        <li>Element 1</li>
+        <li>Element 20</li>
+        <li>Element 3</li>
+        <li>Element 24</li>
+        <li>Element 45</li>
+    </ul>
+
+    <script>
+        const button = document.getElementById('my-button');
+
+        button.addEventListener('click', () => {
+            const list = document.getElementById("list");
+            const listElementsValue = Array.from(document.querySelectorAll("li"));
+
+            listElementsValue.sort((a, b) => {
+                let aValue = parseInt(a.textContent.match(/\d+/)[0]);
+                let bValue = parseInt(b.textContent.match(/\d+/)[0]);
+                return aValue - bValue;
+            })
+
+            for (let i = 0; i < listElementsValue.length; i++) {
+                list.appendChild(listElementsValue[i]);
+            }
+        })
+    </script>
+</body>
+
+</html>
