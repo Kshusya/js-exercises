@@ -1,0 +1,59 @@
+<!-- Пусть даны чекбоксы, отмеченные и нет. По нажатию на кнопку сделайте так, чтобы все чекбоксы сменили свое состояние. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <button id="my-button">Change</button>
+    <form>
+        <label>English
+            <input type="checkbox" checked>
+        </label>
+        <br>
+        <label>Russian
+            <input type="checkbox">
+        </label>
+        <br>
+        <label>Chinese
+            <input type="checkbox" checked>
+        </label>
+        <br>
+        <label>Japan
+            <input type="checkbox">
+        </label>
+        <br>
+        <label>French
+            <input type="checkbox" checked>
+        </label>
+        <br>
+        <label>German
+            <input type="checkbox">
+        </label>
+    </form>
+</body>
+
+<script>
+    const button = document.getElementById('my-button');
+    
+    button.addEventListener("click", () => {
+        const inputs = document.querySelectorAll("input");
+        inputs.forEach(input => {
+
+            // solution #1: xor
+            // input.checked ^= 1;
+
+            // solution #2: Logical NOT (!)
+            input.checked = !input.checked;
+
+            // solution #3: Conditional (ternary) operator
+            // input.checked = (input.checked === true) ? false : true;
+        })
+    })
+</script>
+
+</html>
